@@ -19,7 +19,7 @@ api.add = async (req, res) => {
     if(canComment) {
         const commentId = await commentDao.add(commentText, photo.id, req.user.id);
         const comment = await commentDao.findById(commentId);
-        console.log(`Comment added`, comment);
+        console.log(`Comment added `, comment);
         res.json(comment);
     } else {
         res.status(403).json({ message: 'Forbiden'});

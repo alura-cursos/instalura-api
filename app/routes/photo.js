@@ -17,5 +17,6 @@ module.exports = app => {
 
    
     app.route('/photos/:photoId/likes')
-        .post(auth, wrapAsync(photoAPI.like));
+        .post(auth, wrapAsync(photoAPI.addLike))
+        .delete(auth, wrapAsync(photoAPI.removeLike));
 };

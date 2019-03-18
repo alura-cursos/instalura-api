@@ -234,6 +234,21 @@ class PhotoDao {
         ));
 
     }
+
+    dislikeById(photoId, userId) {
+
+        return new Promise((resolve, reject) => this._db.run(
+            `DELETE FROM like WHERE photo_id = ? AND user_id = ?`,
+            [photoId, userId],
+            err => {
+                if (err) {
+                    console.log(err);
+                    return reject('Não foi possível remover o like!');
+                }
+                resolve(!!this.changes);
+            }
+        ));
+    }
 }
 
 module.exports = PhotoDao;
