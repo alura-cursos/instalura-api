@@ -1,8 +1,8 @@
 // TODO - adicionar funcionalidade de limpar o BD de tempos em tempos
 // para colocar a API online e não explodir o cabeçote!
 
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('data.db');
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("data.db");
 
 const USER_SCHEMA = `
 CREATE TABLE IF NOT EXISTS user (
@@ -14,20 +14,18 @@ CREATE TABLE IF NOT EXISTS user (
 )
 `;
 
-const INSERT_DEFAULT_USER_1 = 
-`
+const INSERT_DEFAULT_USER_1 = `
 INSERT INTO user (
     user_name, 
     user_password,
     user_profile_photo_url
 ) 
 
-SELECT 'alots', '123456', 'http://USER-PHOTO-URL.com' 
-WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'alots')
+SELECT 'Alura', '123456', "https://scontent-gru1-1.cdninstagram.com/vp/3476367ee34edef963a38aa1147b1b91/5DD44733/t51.2885-19/s150x150/13249961_1108982605832076_722482094_a.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com"
+WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'Alura')
 `;
 
-const INSERT_DEFAULT_USER_2 = 
-`
+const INSERT_DEFAULT_USER_2 = `
 INSERT INTO user (
     user_name, 
     user_password,
@@ -38,8 +36,7 @@ SELECT 'gabrielleitealura', '123456', 'http://USER-PHOTO-URL.com'
 WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'gabrielleitealura')
 `;
 
-const INSERT_DEFAULT_USER_3 = 
-`
+const INSERT_DEFAULT_USER_3 = `
 INSERT INTO user (
     user_name, 
     user_password,
@@ -50,8 +47,7 @@ SELECT 'pauloscalercioalura', '123456', 'http://USER-PHOTO-URL.com'
 WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'pauloscalercioalura')
 `;
 
-const PHOTO_SCHEMA = 
-`
+const PHOTO_SCHEMA = `
 CREATE TABLE IF NOT EXISTS photo (
     photo_id INTEGER PRIMARY KEY AUTOINCREMENT,
     photo_post_date TIMESTAMP DEFAULT current_timestamp, 
@@ -76,8 +72,7 @@ CREATE TABLE IF NOT EXISTS photo (
 //     KEY `FKkeyss3i39o47lj7jctjqpwai2` (`usuario_id`),
 //     CONSTRAINT `FKkeyss3i39o47lj7jctjqpwai2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
 //   ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-const INSERT_DEFAULT_PHOTO_1 =
-`
+const INSERT_DEFAULT_PHOTO_1 = `
 INSERT INTO photo (
     photo_id,
     photo_post_date,
@@ -86,11 +81,10 @@ INSERT INTO photo (
     user_id
 )
 
-SELECT 1,datetime('2018-02-01 15:10:50'),'https://instagram.fcgh10-1.fna.fbcdn.net/t51.2885-15/e35/14482111_1635089460122802_8984023070045896704_n.jpg?ig_cache_key=MTM1MzEzNjM4NzAxMjIwODUyMw%3D%3D.2', 'comentario da foto',1 
+SELECT 1,datetime('2018-02-01 15:10:50'),'https://scontent-gru1-1.cdninstagram.com/vp/bb055dca2d8316e49d8ce4519fc87f43/5DCACA0F/t51.2885-15/sh0.08/e35/s640x640/67110596_484881538755406_800748682809446967_n.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com', 'comentario da foto',1 
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 1)
 `;
-const INSERT_DEFAULT_PHOTO_2 =
-`
+const INSERT_DEFAULT_PHOTO_2 = `
 INSERT INTO photo (
     photo_id,
     photo_post_date,
@@ -99,11 +93,10 @@ INSERT INTO photo (
     user_id
 )
 
-SELECT 2,datetime('2018-02-13 10:30:25'),'https://instagram.fcgh9-1.fna.fbcdn.net/t51.2885-15/e35/15276770_381074615568085_8052939980646907904_n.jpg?ig_cache_key=MTM5ODY4MDMyNjYyMDA1MDE4OQ%3D%3D.2','comentario da foto',1
+SELECT 2,datetime('2018-02-13 10:30:25'),'https://scontent-gru1-1.cdninstagram.com/vp/891e6c96b2a0cbf3666ae2c232b34963/5DDBB1A4/t51.2885-15/sh0.08/e35/s640x640/65471462_1193154477523428_3282751902607052484_n.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com','comentario da foto',1
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 2)
 `;
-const INSERT_DEFAULT_PHOTO_3 =
-`
+const INSERT_DEFAULT_PHOTO_3 = `
 INSERT INTO photo (
     photo_id,
     photo_post_date,
@@ -112,11 +105,10 @@ INSERT INTO photo (
     user_id
 )
 
-SELECT 3,datetime('2018-02-23 19:00:15'),'https://instagram.fcgh10-1.fna.fbcdn.net/t51.2885-15/e35/14482111_1635089460122802_8984023070045896704_n.jpg?ig_cache_key=MTM1MzEzNjM4NzAxMjIwODUyMw%3D%3D.2','comentario da foto',2
+SELECT 3,datetime('2018-02-23 19:00:15'),'https://scontent-gru1-1.cdninstagram.com/vp/a2f972742ff08705cda0437bfa3864c1/5DD94800/t51.2885-15/sh0.08/e35/s640x640/61399329_169985790686534_5318274071754878611_n.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com','comentario da foto',1
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 3)
 `;
-const INSERT_DEFAULT_PHOTO_4 =
-`
+const INSERT_DEFAULT_PHOTO_4 = `
 INSERT INTO photo (
     photo_id,
     photo_post_date,
@@ -128,8 +120,7 @@ INSERT INTO photo (
 SELECT 4,datetime('2018-03-17 12:15:00'),'https://instagram.fcgh9-1.fna.fbcdn.net/t51.2885-15/e35/15276770_381074615568085_8052939980646907904_n.jpg?ig_cache_key=MTM5ODY4MDMyNjYyMDA1MDE4OQ%3D%3D.2','comentario da foto',2
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 4)
 `;
-const INSERT_DEFAULT_PHOTO_5 =
-`
+const INSERT_DEFAULT_PHOTO_5 = `
 INSERT INTO photo (
     photo_id,
     photo_post_date,
@@ -141,8 +132,7 @@ INSERT INTO photo (
 SELECT 5,datetime('2018-04-10 13:35:20'),'https://instagram.fcgh10-1.fna.fbcdn.net/t51.2885-15/e35/14482111_1635089460122802_8984023070045896704_n.jpg?ig_cache_key=MTM1MzEzNjM4NzAxMjIwODUyMw%3D%3D.2','comentario da foto',3
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 5)
 `;
-const INSERT_DEFAULT_PHOTO_6 =
-`
+const INSERT_DEFAULT_PHOTO_6 = `
 INSERT INTO photo (
     photo_id,
     photo_post_date,
@@ -155,8 +145,7 @@ SELECT 6,datetime('2018-05-19 16:45:00'),'https://instagram.fcgh9-1.fna.fbcdn.ne
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 6)
 `;
 
-const COMMENT_SCHEMA =
-`
+const COMMENT_SCHEMA = `
 CREATE TABLE IF NOT EXISTS comment (
     comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     comment_date TIMESTAMP DEFAULT current_timestamp,
@@ -168,6 +157,25 @@ CREATE TABLE IF NOT EXISTS comment (
 );
 `;
 
+const INSERT_COMENTS_1 = `
+INSERT INTO comment (
+    comment_text,
+    user_id,
+    photo_id
+)
+SELECT "Muito bom!!",2, 1
+WHERE NOT EXISTS (SELECT * FROM comment WHERE user_id = 2)
+`;
+
+const INSERT_COMENTS_2 = `
+INSERT INTO comment (
+    comment_text,
+    user_id,
+    photo_id
+)
+SELECT "Parabéns aos envolvidos!!",3, 1
+WHERE NOT EXISTS (SELECT * FROM comment WHERE user_id = 3)
+`;
 const LIKE_SCHEMA = `
 CREATE TABLE IF NOT EXISTS like (
     like_id INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -180,38 +188,52 @@ CREATE TABLE IF NOT EXISTS like (
 )
 `;
 
+const INSERT_LIKE = `
+INSERT INTO like (
+    photo_id,
+    user_id
+)
+SELECT 1,1
+WHERE NOT EXISTS (SELECT * FROM like WHERE photo_id= 1 and user_id = 1)
+`;
+
 db.serialize(() => {
-    db.run("PRAGMA foreign_keys=ON");
-    db.run(USER_SCHEMA);
-    db.run(INSERT_DEFAULT_USER_1);
-    db.run(INSERT_DEFAULT_USER_2);
-    db.run(INSERT_DEFAULT_USER_3);
-    db.run(PHOTO_SCHEMA); 
-    db.run(INSERT_DEFAULT_PHOTO_1);
-    db.run(INSERT_DEFAULT_PHOTO_2);
-    db.run(INSERT_DEFAULT_PHOTO_3);
-    db.run(INSERT_DEFAULT_PHOTO_4);
-    db.run(INSERT_DEFAULT_PHOTO_5);
-    db.run(INSERT_DEFAULT_PHOTO_6);
-    db.run(COMMENT_SCHEMA);
-    db.run(LIKE_SCHEMA, err => err ? console.log(err) : console.log('Tabela like criada!'));
+  db.run("PRAGMA foreign_keys=ON");
+  db.run(USER_SCHEMA);
+  db.run(INSERT_DEFAULT_USER_1);
+  db.run(INSERT_DEFAULT_USER_2);
+  db.run(INSERT_DEFAULT_USER_3);
+  db.run(PHOTO_SCHEMA);
+  db.run(INSERT_DEFAULT_PHOTO_1);
+  db.run(INSERT_DEFAULT_PHOTO_2);
+  db.run(INSERT_DEFAULT_PHOTO_3);
+  /*db.run(INSERT_DEFAULT_PHOTO_4);
+  db.run(INSERT_DEFAULT_PHOTO_5);
+  db.run(INSERT_DEFAULT_PHOTO_6); */
+  db.run(COMMENT_SCHEMA);
+  db.run(INSERT_COMENTS_1);
+  db.run(INSERT_COMENTS_2);
+  db.run(LIKE_SCHEMA, err =>
+    err ? console.log(err) : console.log("Tabela like criada!")
+  );
+  db.run(INSERT_LIKE);
 
-    db.each("SELECT * FROM user", (err, user) => {
-        console.log('Users');
-        console.log(user);
-    });
+  //   db.each("SELECT * FROM user", (err, user) => {
+  //     console.log("Users");
+  //     console.log(user);
+  //   });
 
-    // db.each("SELECT * FROM photo", (err, photo) => {
-    //     console.log('Photos');
-    //     console.log(photo);
-    // });
+  // db.each("SELECT * FROM photo", (err, photo) => {
+  //     console.log('Photos');
+  //     console.log(photo);
+  // });
 });
 
-process.on('SIGINT', () =>
-    db.close(() => {
-        console.log('Database closed');
-        process.exit(0);
-    })
+process.on("SIGINT", () =>
+  db.close(() => {
+    console.log("Database closed");
+    process.exit(0);
+  })
 );
 
 module.exports = db;

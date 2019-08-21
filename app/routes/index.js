@@ -1,5 +1,6 @@
-const commentRoutes = require('./comment'),
-        photoRoutes = require('./photo'),
-        userRoutes = require('./user');
+const commentRoutes = require("./comment"),
+  photoRoutes = require("./photo"),
+  userRoutes = require("./user"),
+  feedRoutes = require("./feed");
 
-module.exports = { commentRoutes, photoRoutes, userRoutes };
+module.exports = { commentRoutes, photoRoutes, userRoutes, feedRoutes };
