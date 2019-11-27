@@ -107,12 +107,10 @@ api.removeLike = async (req, res) => {
 
   const dao = new PhotoDao(req.db);
   const liked = await dao.dislikeById(photoId, user.id);
-  if (liked) {
-    console.log(`User ${user.name} liked photo ${photoId}`);
-    return res.status(201).end();
+  if (!liked) {
+    console.log(`User ${user.name} disliked photo ${photoId}`);
+    return res.status(200).end();
   }
-  console.log(`User ${user.name} disliked photo ${photoId}`);
-  return res.status(200).end();
 };
 
 module.exports = api;

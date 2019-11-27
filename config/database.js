@@ -21,7 +21,7 @@ INSERT INTO user (
     user_profile_photo_url
 ) 
 
-SELECT 'Alura', '123456', "https://scontent-gru1-1.cdninstagram.com/vp/3476367ee34edef963a38aa1147b1b91/5DD44733/t51.2885-19/s150x150/13249961_1108982605832076_722482094_a.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com"
+SELECT 'Alura', '123456', "https://raw.githubusercontent.com/bugan/instalura-api/master/uploads/logo.jpg"
 WHERE NOT EXISTS (SELECT * FROM user WHERE user_name = 'Alura')
 `;
 
@@ -81,7 +81,7 @@ INSERT INTO photo (
     user_id
 )
 
-SELECT 1,datetime('2018-02-01 15:10:50'),'https://scontent-gru1-1.cdninstagram.com/vp/bb055dca2d8316e49d8ce4519fc87f43/5DCACA0F/t51.2885-15/sh0.08/e35/s640x640/67110596_484881538755406_800748682809446967_n.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com', 'comentario da foto',1 
+SELECT 1,datetime('2018-02-01 15:10:50'),'https://www.imagemhost.com.br/images/2019/11/27/foto_3.jpg', 'comentario da foto',1 
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 1)
 `;
 const INSERT_DEFAULT_PHOTO_2 = `
@@ -93,7 +93,10 @@ INSERT INTO photo (
     user_id
 )
 
-SELECT 2,datetime('2018-02-13 10:30:25'),'https://scontent-gru1-1.cdninstagram.com/vp/891e6c96b2a0cbf3666ae2c232b34963/5DDBB1A4/t51.2885-15/sh0.08/e35/s640x640/65471462_1193154477523428_3282751902607052484_n.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com','comentario da foto',1
+
+
+
+SELECT 2,datetime('2018-02-13 10:30:25'),'https://www.imagemhost.com.br/images/2019/11/27/65471462_1193154477523428_3282751902607052484_n.jpg','comentario da foto',1
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 2)
 `;
 const INSERT_DEFAULT_PHOTO_3 = `
@@ -105,7 +108,7 @@ INSERT INTO photo (
     user_id
 )
 
-SELECT 3,datetime('2018-02-23 19:00:15'),'https://scontent-gru1-1.cdninstagram.com/vp/a2f972742ff08705cda0437bfa3864c1/5DD94800/t51.2885-15/sh0.08/e35/s640x640/61399329_169985790686534_5318274071754878611_n.jpg?_nc_ht=scontent-gru1-1.cdninstagram.com','comentario da foto',1
+SELECT 3,datetime('2018-02-23 19:00:15'),'https://www.imagemhost.com.br/images/2019/11/27/47117459_2143415245698396_1579765390659818341_n.jpg','comentario da foto',1
 WHERE NOT EXISTS (SELECT * FROM photo WHERE photo_id = 3)
 `;
 const INSERT_DEFAULT_PHOTO_4 = `
